@@ -1,0 +1,15 @@
+                resp.setContentType("text/html");
+                PrintWriter writer = resp.getWriter();
+
+        if(password.equals("admin")){
+            getServletContext().getRequestDispatcher("/request.jsp").forward(req, resp);
+        }
+        else if(password.equals("qwerty")){
+            resp.sendRedirect("https://www.javatpoint.com/requestdispatcher-in-servlet");
+        }
+        else {
+            writer.write("Sorry password Error");
+            getServletContext().getRequestDispatcher("presidents.jsp").forward(req, resp);
+        }
+
+                writer.write("RequestDispatcher"+username+password);
